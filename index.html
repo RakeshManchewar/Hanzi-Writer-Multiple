@@ -4,50 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinese Character Writer (Multiple)</title>
+    <title>Chinese Character Writer - Learn & Practice</title>
     <link rel="icon" type="image/x-icon" href="chinese-temple-china-svgrepo-com.svg">
     <link rel="stylesheet" href="style.css">
-
-    <!-- HanziWriter -->
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-
-        <header class="header">
-            <h1>Chinese Character Writer</h1>
-            <p class="subtitle">Learn and download beautiful Chinese characters</p>
+    <div class="page-wrapper">
+        <!-- Header Section -->
+        <header class="hero-header">
+            <div class="hero-content">
+                <div class="logo-section">
+                    <div class="logo-icon">汉</div>
+                    <h1 class="main-title">Chinese Character Writer</h1>
+                </div>
+                <p class="hero-description">Master the art of Chinese calligraphy with interactive stroke animations</p>
+            </div>
         </header>
 
-        <div class="main-content">
-
-            <div class="card">
-                <h2>Enter Characters</h2>
-
-                <input type="text" id="userInput" placeholder="Type Chinese characters...">
-                <p class="hint">You can enter multiple characters</p>
-
-                <div class="button-group">
-                    <button class="btn btn-primary" onclick="animateCharacters()">▶ Animate</button>
-                    <button class="btn btn-secondary" onclick="downloadSvg()">⬇ SVG</button>
-                    <button class="btn btn-secondary" onclick="downloadPng()">⬇ PNG</button>
+        <!-- Main Content -->
+        <main class="main-container">
+            
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="section-header">
+                    <h2 class="section-title">Enter Characters</h2>
+                    <span class="badge">Step 1</span>
                 </div>
+                
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="userInput" 
+                        class="character-input"
+                        placeholder="输入汉字..."
+                        maxlength="20"
+                    >
+                    <div class="input-info">
+                        <span class="info-icon">ℹ️</span>
+                        <span class="info-text">Enter up to 20 Chinese characters</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-animate" onclick="animateCharacters()">
+                        <span class="btn-icon">▶</span>
+                        <span>Animate Strokes</span>
+                    </button>
+                    <button class="btn btn-download-svg" onclick="downloadSvg()">
+                        <span class="btn-icon">⬇</span>
+                        <span>Download SVG</span>
+                    </button>
+                    <button class="btn btn-download-png" onclick="downloadPng()">
+                        <span class="btn-icon">⬇</span>
+                        <span>Download PNG</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section">
+                <div class="section-header">
+                    <h2 class="section-title">Live Preview</h2>
+                    <span class="badge">Step 2</span>
+                </div>
+                
+                <div class="preview-display">
+                    <div id="result" class="preview-text">输入汉字</div>
+                </div>
+            </section>
+
+            <!-- Animation Section -->
+            <section class="animation-section">
+                <div class="section-header">
+                    <h2 class="section-title">Stroke Animation</h2>
+                    <span class="badge">Step 3</span>
+                </div>
+                
+                <div class="animation-info">
+                    <p>Watch each stroke animate in the correct order. Perfect for learning proper character formation!</p>
+                </div>
+                
+                <div id="character-target-div" class="character-grid"></div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="footer-content">
+                <p class="footer-text">Powered by <strong>HanziWriter</strong></p>
+                <p class="footer-subtext">Practice makes perfect • 熟能生巧</p>
             </div>
-
-            <div class="card">
-                <h2>Preview</h2>
-                <div id="result" class="result-display">输入汉字</div>
-            </div>
-
-            <div class="card">
-                <h2>Stroke Animation</h2>
-                <div id="character-target-div" class="character-canvas"></div>
-            </div>
-
-        </div>
-
-        <footer class="footer">Powered by HanziWriter • Practice Chinese Calligraphy</footer>
+        </footer>
     </div>
 
     <script src="script.js"></script>
